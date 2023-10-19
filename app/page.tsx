@@ -4,6 +4,10 @@ import Canvas from "./components/Canvas";
 import DropZone from "./components/DropZone";
 import styles from "./page.module.css";
 import Image from "next/image";
+import downloadImg from "@/assets/images/download.png"
+import harbotBarzal from "@/assets/images/harbotBarzal.png"
+import sapir from "@/assets/images/sapir.png"
+import yesodot from "@/assets/images/yesodot.png"
 
 export default function Home() {
   const [jsonData, setJsonData] = useState(null);
@@ -28,23 +32,46 @@ export default function Home() {
           rel="noreferrer"
         >
           <Image
-            alt="download file"
             className={styles.download}
-            src="/download.png"
+            src={downloadImg}
             width={70}
             height={70}
-            title={"Download file"}
-          />
+            title={"Download template"} alt={""}          />
         </a>
       </div>
 
-      <p>{JSON.stringify(jsonData)}</p>
       <div className={styles.canvas}>
         <Canvas data={jsonData} />
       </div>
 
       <DropZone setJsonData={setJsonData}></DropZone>
       <div></div>
+      <div className={styles.footer}>
+        <div className={styles.logoContainer}>
+          <Image
+            className={styles.logo}
+            src={sapir}
+            width={70}
+            height={70}
+            alt={""}
+          />
+          <Image
+            className={styles.logo}
+            src={yesodot}
+            width={100}
+            height={70}
+            alt={""}
+          />
+          <Image
+            className={styles.logo}
+            src={harbotBarzal}
+            width={100}
+            height={70}
+            alt={""}
+          />
+        </div>
+        <p></p>
+      </div>
     </main>
   );
 }

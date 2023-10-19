@@ -26,15 +26,23 @@
     padding-left: 15px
 }
 
-.logo {
+.appLogo {
     height: 60px;
     width: 60px;
 }
 
 .canvas {
-    width: 1000px;
+    width: auto;
     left: 50%;
     position: absolute;
     transform: translateX(-50%);
     top: 400px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 10px;  
+    left: 10px;  
+    width: 50px;   
+    height: auto; 
 }
