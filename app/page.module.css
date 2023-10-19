@@ -1,3 +1,40 @@
 .main {
 
 }
+
+.nav {
+    background: #d0deea;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.download {
+    padding: 10px;
+}
+
+.logoContainer {
+    margin-right: auto;
+    display: flex;
+
+}
+
+.logoText {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 60px;
+    padding-left: 15px
+}
+
+.logo {
+    height: 60px;
+    width: 60px;
+}
+
+.canvas {
+    width: 1000px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 400px;
+}

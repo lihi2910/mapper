@@ -59,8 +59,10 @@ const dropzoneStyle = {
   cursor: 'pointer',
   height: '250px',
   width: '1000px',
-  position: 'absolute', left: '50%', top: '25%',
-        transform: 'translate(-50%, -50%)'
+  position: 'absolute',
+  left: '50%',
+  top: '25%',
+  transform: 'translate(-50%, -50%)'
 };
 
 export default DropZone;

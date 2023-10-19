@@ -1,21 +1,63 @@
 "use client";
 import { useState } from "react";
 import Canvas from "./components/Canvas";
-import UploadFile from "./components/UploadFile";
 import DropZone from "./components/DropZone";
-import FileDownloader from "./components/Download"
 import styles from "./page.module.css";
+import Image from "next/image";
 
 export default function Home() {
   const [jsonData, setJsonData] = useState(null);
 
   return (
     <main className={styles.main}>
-      <img src="./../assets/images/logo.png"></img>
-      <Canvas data={{ pt: { reserve: { lihi: 30, noga: 100, total: 130 }, sadir: { lihi: 30, noga: 100, total: 130, } }, js: { reserve: {}, sadir: { lihi: 50, noga: 34, total: 84 } }, hf: { reserve: { lihi: 30, noga: 100, total: 130 }, sadir: { lihi: 30, noga: 100, total: 130 } } }} />
-      <DropZone setJsonData={setJsonData}></DropZone>
-      
+      <div className={styles.nav}>
+        <div className={styles.logoContainer}>
+          <Image
+            alt="logo"
+            className={styles.logo}
+            src="/logo.png"
+            width={70}
+            height={70}
+          />
+          <div className={styles.logoText}>Mapper</div>
+        </div>
+        <a
+          href="/example.xlsx"
+          download="example.xlsx"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Image
+            alt="download file"
+            className={styles.download}
+            src="/download.png"
+            width={70}
+            height={70}
+            title={"Download file"}
+          />
+        </a>
+      </div>
 
+      <p>{JSON.stringify(jsonData)}</p>
+      <div className={styles.canvas}>
+        {" "}
+        <Canvas
+          data={{
+            pt: {
+              reserve: { lihi: 30, noga: 100, total: 130 },
+              sadir: { lihi: 30, noga: 100, total: 130 },
+            },
+            js: { reserve: {}, sadir: { lihi: 50, noga: 34, total: 84 } },
+            hf: {
+              reserve: { lihi: 30, noga: 100, total: 130 },
+              sadir: { lihi: 30, noga: 100, total: 130 },
+            },
+          }}
+        />
+      </div>
+
+      <DropZone setJsonData={setJsonData}></DropZone>
+      <div></div>
     </main>
   );
 }
