@@ -40,20 +40,7 @@ export default function Home() {
 
       <p>{JSON.stringify(jsonData)}</p>
       <div className={styles.canvas}>
-        {" "}
-        <Canvas
-          data={{
-            pt: {
-              reserve: { lihi: 30, noga: 100, total: 130 },
-              sadir: { lihi: 30, noga: 100, total: 130 },
-            },
-            js: { reserve: {}, sadir: { lihi: 50, noga: 34, total: 84 } },
-            hf: {
-              reserve: { lihi: 30, noga: 100, total: 130 },
-              sadir: { lihi: 30, noga: 100, total: 130 },
-            },
-          }}
-        />
+        <Canvas data={jsonData} />
       </div>
 
       <DropZone setJsonData={setJsonData}></DropZone>
