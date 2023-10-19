@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "classnames": "^2.3.2",
     "exceljs": "^4.3.0",
     "multer": "^1.4.5-lts.1",
     "next": "13.5.5",

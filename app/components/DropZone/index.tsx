@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import ExcelJS from "exceljs";
 import { useDropzone } from 'react-dropzone';
 import { getExcelinJson } from "./../../utils/excelToJson";
+import uploadImg from "@/assets/images/uploadImg.svg";
+import Image from "next/image";
+import styles from './DropZone.module.css';
 
 const DropZone = ({ setJsonData }) => {
   const [excelData, setExcelData] = useState(null);
@@ -19,7 +22,7 @@ const DropZone = ({ setJsonData }) => {
 
           // Assuming the first worksheet is the one you want to process
           const worksheet = workbook.getWorksheet(1);
-          
+
           setJsonData(await getExcelinJson(worksheet));
         };
 
@@ -34,13 +37,14 @@ const DropZone = ({ setJsonData }) => {
 
   return (
     <div>
-      <div {...getRootProps()} style={dropzoneStyle}>
+      <div {...getRootProps()} className={styles.dropzone}>
         <input {...getInputProps()} accept=".xls, .xlsx" />
         {isDragActive ? (
           <p>גרור לפה את הקובץ או לחץ כאן</p>
         ) : (
-            <p>גרור לפה את הקובץ או לחץ כאן</p>
+          <p>גרור לפה את הקובץ או לחץ כאן</p>
         )}
+        <Image alt="" src={uploadImg.src} width={100} height={100} />
       </div>
       {excelData && (
         <div>
@@ -50,19 +54,4 @@ const DropZone = ({ setJsonData }) => {
     </div>
   );
 };
-
-const dropzoneStyle = {
-  border: '2px dashed #cccccc',
-  borderRadius: '4px',
-  padding: '20px',
-  textAlign: 'center',
-  cursor: 'pointer',
-  height: '250px',
-  width: '1000px',
-  position: 'absolute',
-  left: '50%',
-  top: '25%',
-  transform: 'translate(-50%, -50%)'
-};
-
 export default DropZone;

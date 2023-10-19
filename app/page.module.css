@@ -3,10 +3,12 @@
 }
 
 .nav {
-    background: #d0deea;
-    padding: 10px;
+    background: #1B2D48;
+    padding: .5rem;
     display: flex;
     justify-content: flex-end;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.372);
+    align-items: center;
 }
 
 .download {
@@ -16,12 +18,20 @@
 .logoContainer {
     margin-right: auto;
     display: flex;
-
+    align-items: center;
+}
+.body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 4rem;
 }
 
 .logoText {
     font-size: 26px;
     font-weight: 600;
+    color: white;
     line-height: 60px;
     padding-left: 15px
 }
@@ -29,14 +39,6 @@
 .appLogo {
     height: 60px;
     width: 60px;
-}
-
-.canvas {
-    width: auto;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-    top: 400px;
 }
 
 .footer {

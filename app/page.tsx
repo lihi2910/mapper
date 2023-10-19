@@ -4,10 +4,12 @@ import Canvas from "./components/Canvas";
 import DropZone from "./components/DropZone";
 import styles from "./page.module.css";
 import Image from "next/image";
-import downloadImg from "@/assets/images/download.png"
+import downloadImg from "@/assets/images/download.svg"
 import harbotBarzal from "@/assets/images/harbotBarzal.png"
 import sapir from "@/assets/images/sapir.png"
 import yesodot from "@/assets/images/yesodot.png"
+import logo from "@/assets/images/logo.png"
+import Dialog from "./components/Dialog";
 
 export default function Home() {
   const [jsonData, setJsonData] = useState(null);
@@ -17,11 +19,11 @@ export default function Home() {
       <div className={styles.nav}>
         <div className={styles.logoContainer}>
           <Image
-            alt="logo"
+            alt=""
             className={styles.logo}
-            src="/logo.png"
-            width={70}
-            height={70}
+            src={logo}
+            width={60}
+            height={60}
           />
           <div className={styles.logoText}>Mapper</div>
         </div>
@@ -33,19 +35,22 @@ export default function Home() {
         >
           <Image
             className={styles.download}
-            src={downloadImg}
-            width={70}
-            height={70}
-            title={"Download template"} alt={""}          />
+            src={downloadImg.src}
+            width={45}
+            height={45}
+            title={"Download template"} alt={""} />
         </a>
       </div>
 
-      <div className={styles.canvas}>
-        <Canvas data={jsonData} />
+      <div className={styles.body}>
+        <DropZone setJsonData={setJsonData}></DropZone>
+
+        <Dialog isOpen={!!jsonData} onClose={() => setJsonData(null)}>
+          <Canvas data={jsonData} />
+        </Dialog>
       </div>
 
-      <DropZone setJsonData={setJsonData}></DropZone>
-      <div></div>
+
       <div className={styles.footer}>
         <div className={styles.logoContainer}>
           <Image
@@ -66,11 +71,10 @@ export default function Home() {
             className={styles.logo}
             src={harbotBarzal}
             width={100}
-            height={70}
+            height={50}
             alt={""}
           />
         </div>
-        <p></p>
       </div>
     </main>
   );
